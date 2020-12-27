@@ -1,18 +1,16 @@
 import 'package:built_redux/built_redux.dart';
+import 'package:feature_app/domain/feature_app_actions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_built_redux/flutter_built_redux.dart';
 import 'package:reduxCounter/built_redux_rx.dart';
-import 'package:reduxCounter/domain/counter.dart';
-import 'package:reduxCounter/domain/counter_actions.dart';
-import 'package:reduxCounter/domain/counter_epic.dart';
-import 'package:reduxCounter/domain/counter_reducer.dart';
 import 'package:reduxCounter/domain/logging.dart';
+import 'package:feature_app/feature_app.dart';
 
 void main() {
-  final store = Store<Counter, CounterBuilder, CounterActions>(
-    reducerBuilder().build(), // build returns a reducer function
-    Counter(),
-    CounterActions(),
+  final store = Store<FeatureApp, FeatureAppBuilder, FeatureAppActions>(
+    reducers, // build returns a reducer function
+    FeatureApp(),
+    FeatureAppActions(),
     middleware: [
       loggingMiddleware,
       createEpicMiddleware([requestIncrement])
@@ -65,8 +63,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) => StoreConnection(
-      connect: (Counter state) => state,
-      builder: (context, Counter state, CounterActions action) {
+      connect: (FeatureApp state) => state,
+      builder: (context, FeatureApp state, FeatureAppActions actions) {
         return Scaffold(
           appBar: AppBar(
             // Here we take the value from the MyHomePage object that was created by
@@ -97,14 +95,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   'You have pushed the button this many times:',
                 ),
                 Text(
-                  '${state.count}',
+                  '${state.featureA.count}',
                   style: Theme.of(context).textTheme.headline4,
                 ),
               ],
             ),
           ),
           floatingActionButton: FloatingActionButton(
-            onPressed: action.requestIncrement,
+            onPressed: () => actions.featureA.requestIncrement(),
             tooltip: 'Increment',
             child: Icon(Icons.add),
           ), // This trailing comma makes auto-formatting nicer for build methods.

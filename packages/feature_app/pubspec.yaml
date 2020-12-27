@@ -1,0 +1,30 @@
+name: feature_app
+description: feature_app
+version: 0.0.1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  rxdart: 
+  built_redux: 
+  built_collection: ^4.3.0
+  built_value: '>=6.8.2 <8.0.0'
+
+  feature_a:
+    path: ../feature_a
+
+
+dev_dependencies:
+  pedantic: 1.10.0-nullsafety.1
+  
+  build_runner: ^1.7.1
+  build_test: ^0.10.11
+  built_value_generator: ^7.0.0
+  build_web_compilers: ^2.7.1
+  workiva_analysis_options: ^1.0.0

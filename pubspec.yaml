@@ -38,6 +38,9 @@ dependencies:
   rxdart:
   flutter_built_redux: 
 
+  feature_app:
+      path: packages/feature_app  
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
