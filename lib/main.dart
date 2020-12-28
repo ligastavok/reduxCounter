@@ -1,15 +1,15 @@
 import 'package:built_redux/built_redux.dart';
-import 'package:feature_app/domain/feature_app_actions.dart';
+import 'package:feature_app_gplay/domain/feature_app_actions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_built_redux/flutter_built_redux.dart';
 import 'package:reduxCounter/built_redux_rx.dart';
 import 'package:reduxCounter/domain/logging.dart';
-import 'package:feature_app/feature_app.dart';
+import 'package:feature_app_gplay/feature_app_gplay.dart';
 
 void main() {
-  final store = Store<FeatureApp, FeatureAppBuilder, FeatureAppActions>(
+  final store = Store<FeatureAppGPlay, FeatureAppGPlayBuilder, FeatureAppActions>(
     reducers, // build returns a reducer function
-    FeatureApp(),
+    FeatureAppGPlay(),
     FeatureAppActions(),
     middleware: [
       loggingMiddleware,
@@ -63,8 +63,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) => StoreConnection(
-      connect: (FeatureApp state) => state,
-      builder: (context, FeatureApp state, FeatureAppActions actions) {
+      connect: (FeatureAppGPlay state) => state,
+      builder: (context, FeatureAppGPlay state, FeatureAppActions actions) {
         return Scaffold(
           appBar: AppBar(
             // Here we take the value from the MyHomePage object that was created by

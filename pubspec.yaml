@@ -38,8 +38,8 @@ dependencies:
   rxdart:
   flutter_built_redux: 
 
-  feature_app:
-      path: packages/feature_app  
+  feature_app_gplay:
+      path: packages/feature_app_gplay
 
 dev_dependencies:
   flutter_test:

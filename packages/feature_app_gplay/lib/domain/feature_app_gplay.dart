@@ -1,13 +1,13 @@
 import 'package:built_value/built_value.dart';
 import 'package:feature_a/feature_a.dart';
-part 'feature_app.g.dart';
+part 'feature_app_gplay.g.dart';
 
-abstract class FeatureApp implements Built<FeatureApp, FeatureAppBuilder> {
+abstract class FeatureAppGPlay implements Built<FeatureAppGPlay, FeatureAppGPlayBuilder> {
   // Built value constructor. The factory is returning the default state
-  FeatureApp._();
+  FeatureAppGPlay._();
 
-  factory FeatureApp([Function(FeatureAppBuilder builder) updates]) {
-    return _$FeatureApp(
+  factory FeatureAppGPlay([Function(FeatureAppGPlayBuilder builder) updates]) {
+    return _$FeatureAppGPlay(
       (builder) => builder
         ..featureA = FeatureA().toBuilder()
         ..update(updates),
@@ -15,5 +15,4 @@ abstract class FeatureApp implements Built<FeatureApp, FeatureAppBuilder> {
   }
 
   FeatureA get featureA;
-  
 }

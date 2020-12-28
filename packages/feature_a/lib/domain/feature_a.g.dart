@@ -9,13 +9,18 @@ part of 'feature_a.dart';
 class _$FeatureA extends FeatureA {
   @override
   final int count;
+  @override
+  final int bbb;
 
   factory _$FeatureA([void Function(FeatureABuilder) updates]) =>
       (new FeatureABuilder()..update(updates)).build();
 
-  _$FeatureA._({this.count}) : super._() {
+  _$FeatureA._({this.count, this.bbb}) : super._() {
     if (count == null) {
       throw new BuiltValueNullFieldError('FeatureA', 'count');
+    }
+    if (bbb == null) {
+      throw new BuiltValueNullFieldError('FeatureA', 'bbb');
     }
   }
 
@@ -29,17 +34,19 @@ class _$FeatureA extends FeatureA {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FeatureA && count == other.count;
+    return other is FeatureA && count == other.count && bbb == other.bbb;
   }
 
   @override
   int get hashCode {
-    return $jf($jc(0, count.hashCode));
+    return $jf($jc($jc(0, count.hashCode), bbb.hashCode));
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('FeatureA')..add('count', count))
+    return (newBuiltValueToStringHelper('FeatureA')
+          ..add('count', count)
+          ..add('bbb', bbb))
         .toString();
   }
 }
@@ -51,11 +58,16 @@ class FeatureABuilder implements Builder<FeatureA, FeatureABuilder> {
   int get count => _$this._count;
   set count(int count) => _$this._count = count;
 
+  int _bbb;
+  int get bbb => _$this._bbb;
+  set bbb(int bbb) => _$this._bbb = bbb;
+
   FeatureABuilder();
 
   FeatureABuilder get _$this {
     if (_$v != null) {
       _count = _$v.count;
+      _bbb = _$v.bbb;
       _$v = null;
     }
     return this;
@@ -76,7 +88,7 @@ class FeatureABuilder implements Builder<FeatureA, FeatureABuilder> {
 
   @override
   _$FeatureA build() {
-    final _$result = _$v ?? new _$FeatureA._(count: count);
+    final _$result = _$v ?? new _$FeatureA._(count: count, bbb: bbb);
     replace(_$result);
     return _$result;
   }
