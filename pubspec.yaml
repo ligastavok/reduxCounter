@@ -41,20 +41,20 @@ dependencies:
   flutter_built_redux:
     path: ../flutter_built_redux
 
-  feature_app_gplay:
-      path: packages/feature_app_gplay
-  freezed: ^0.12.7
+  # feature_app_gplay:
+  #     path: packages/feature_app_gplay
+  freezed: 0.13.0-nullsafety.2
   webview_flutter: 1.0.7
   
 
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
+  # flutter_test:
+  #   sdk: flutter
   
-  integration_test:
-    sdk: flutter
+  # integration_test:
+  #   sdk: flutter
 
-  build_runner: '1.10.6'
+  build_runner: '1.11.2'
   build_test: 
   built_value_generator: 
   build_web_compilers: 
@@ -62,6 +62,9 @@ dev_dependencies:
 
 dependency_overrides:
   analyzer: '0.40.6'
+  glob: 2.0.0
+  collection: 1.15.0-nullsafety.5
+  meta: 1.3.0-nullsafety.6
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 

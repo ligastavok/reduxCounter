@@ -1,6 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
+// @dart=2.12
 part of 'cf.dart';
 
 // **************************************************************************
@@ -13,8 +14,7 @@ T _$identity<T>(T value) => value;
 class _$MyClassTearOff {
   const _$MyClassTearOff();
 
-// ignore: unused_element
-  _MyClass call({String a, int b}) {
+  _MyClass call({required String a, required int b}) {
     return _MyClass(
       a: a,
       b: b,
@@ -23,7 +23,6 @@ class _$MyClassTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $MyClass = _$MyClassTearOff();
 
 /// @nodoc
@@ -52,8 +51,8 @@ class _$MyClassCopyWithImpl<$Res> implements $MyClassCopyWith<$Res> {
 
   @override
   $Res call({
-    Object a = freezed,
-    Object b = freezed,
+    Object? a = freezed,
+    Object? b = freezed,
   }) {
     return _then(_value.copyWith(
       a: a == freezed ? _value.a : a as String,
@@ -81,8 +80,8 @@ class __$MyClassCopyWithImpl<$Res> extends _$MyClassCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object a = freezed,
-    Object b = freezed,
+    Object? a = freezed,
+    Object? b = freezed,
   }) {
     return _then(_MyClass(
       a: a == freezed ? _value.a : a as String,
@@ -93,7 +92,7 @@ class __$MyClassCopyWithImpl<$Res> extends _$MyClassCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_MyClass implements _MyClass {
-  _$_MyClass({this.a, this.b});
+  _$_MyClass({required this.a, required this.b});
 
   @override
   final String a;
@@ -128,7 +127,7 @@ class _$_MyClass implements _MyClass {
 }
 
 abstract class _MyClass implements MyClass {
-  factory _MyClass({String a, int b}) = _$_MyClass;
+  factory _MyClass({required String a, required int b}) = _$_MyClass;
 
   @override
   String get a;
