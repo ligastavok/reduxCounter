@@ -1,21 +1,30 @@
 import 'package:built_redux/built_redux.dart';
-import 'package:feature_app_gplay/domain/feature_app_actions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_built_redux/flutter_built_redux.dart';
-import 'package:reduxCounter/built_redux_rx.dart';
-import 'package:reduxCounter/domain/logging.dart';
-import 'package:feature_app_gplay/feature_app_gplay.dart';
+import 'package:redux_counter/domain/cf.dart';
+import 'package:redux_counter/domain/counter.dart';
+import 'package:redux_counter/domain/counter_actions.dart';
+import 'package:redux_counter/domain/logging.dart';
+import 'package:redux_counter/domain/counter_reducer.dart' as counter;
 
 void main() {
-  final store = Store<FeatureAppGPlay, FeatureAppGPlayBuilder, FeatureAppActions>(
-    reducers, // build returns a reducer function
-    FeatureAppGPlay(),
-    FeatureAppActions(),
+  final store = Store<Counter, CounterBuilder, CounterActions>(
+    counter.reducerBuilder().build(), // build returns a reducer function
+    Counter(),
+    CounterActions(),
     middleware: [
       loggingMiddleware,
-      createEpicMiddleware([requestIncrement])
     ],
   );
+
+  store.nextSubstate((state) => state.myClass).listen((event) {
+    print('myClass $event');
+  });
+
+  print('initial myClass ${store.state.myClass}');
+
+  store.actions.decrement(MyClass(a: "1", b: 1));
+
   runApp(ReduxProvider(store: store, child: MyApp()));
 }
 
@@ -63,8 +72,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) => StoreConnection(
-      connect: (FeatureAppGPlay state) => state,
-      builder: (context, FeatureAppGPlay state, FeatureAppActions actions) {
+      connect: (Counter state) => state,
+      builder: (context, Counter state, CounterActions actions) {
         return Scaffold(
           appBar: AppBar(
             // Here we take the value from the MyHomePage object that was created by
@@ -95,14 +104,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   'You have pushed the button this many times:',
                 ),
                 Text(
-                  '${state.featureA.count}',
+                  '${state.myClass.a}',
                   style: Theme.of(context).textTheme.headline4,
                 ),
               ],
             ),
           ),
           floatingActionButton: FloatingActionButton(
-            onPressed: () => actions.featureA.requestIncrement(),
+            onPressed: () => {},
             tooltip: 'Increment',
             child: Icon(Icons.add),
           ), // This trailing comma makes auto-formatting nicer for build methods.

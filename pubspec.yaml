@@ -1,4 +1,4 @@
-name: reduxCounter
+name: redux_counter
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -18,39 +18,50 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.9.0 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
 
 
+
+
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.0
-  analyzer: '>=0.33.0 <0.40.0'
-  build: ^1.2.2
+  analyzer: 
+  build: 
   built_redux: 
   built_collection: ^4.3.0
-  built_value: '>=6.8.2 <8.0.0'
-  source_gen: ^0.9.4+6
+  built_value: 
+  source_gen: 
   test: ^1.9.1
   rxdart:
-  flutter_built_redux: 
+  flutter_built_redux:
+    path: ../flutter_built_redux
 
   feature_app_gplay:
       path: packages/feature_app_gplay
+  freezed: ^0.12.7
+  webview_flutter: 1.0.7
+  
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  
+  integration_test:
+    sdk: flutter
 
-  build_runner: ^1.7.1
-  build_test: ^0.10.11
-  built_value_generator: ^7.0.0
-  build_web_compilers: ^2.7.1
-  workiva_analysis_options: ^1.0.0
+  build_runner: '1.10.6'
+  build_test: 
+  built_value_generator: 
+  build_web_compilers: 
+  workiva_analysis_options: 
 
+dependency_overrides:
+  analyzer: '0.40.6'
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 

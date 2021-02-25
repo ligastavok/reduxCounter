@@ -18,7 +18,7 @@ class _$CounterActions extends CounterActions {
   final requestIncrement =
       ActionDispatcher<void>('CounterActions-requestIncrement');
   final increment = ActionDispatcher<int>('CounterActions-increment');
-  final decrement = ActionDispatcher<int>('CounterActions-decrement');
+  final decrement = ActionDispatcher<MyClass>('CounterActions-decrement');
 
   @override
   void setDispatcher(Dispatcher dispatcher) {
@@ -32,5 +32,5 @@ class CounterActionsNames {
   static final requestIncrement =
       ActionName<void>('CounterActions-requestIncrement');
   static final increment = ActionName<int>('CounterActions-increment');
-  static final decrement = ActionName<int>('CounterActions-decrement');
+  static final decrement = ActionName<MyClass>('CounterActions-decrement');
 }

@@ -9,11 +9,13 @@ part of 'counter.dart';
 class _$Counter extends Counter {
   @override
   final int count;
+  @override
+  final MyClass myClass;
 
   factory _$Counter([void Function(CounterBuilder) updates]) =>
       (new CounterBuilder()..update(updates)).build();
 
-  _$Counter._({this.count}) : super._() {
+  _$Counter._({this.count, this.myClass}) : super._() {
     if (count == null) {
       throw new BuiltValueNullFieldError('Counter', 'count');
     }
@@ -29,17 +31,19 @@ class _$Counter extends Counter {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is Counter && count == other.count;
+    return other is Counter && count == other.count && myClass == other.myClass;
   }
 
   @override
   int get hashCode {
-    return $jf($jc(0, count.hashCode));
+    return $jf($jc($jc(0, count.hashCode), myClass.hashCode));
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('Counter')..add('count', count))
+    return (newBuiltValueToStringHelper('Counter')
+          ..add('count', count)
+          ..add('myClass', myClass))
         .toString();
   }
 }
@@ -51,11 +55,16 @@ class CounterBuilder implements Builder<Counter, CounterBuilder> {
   int get count => _$this._count;
   set count(int count) => _$this._count = count;
 
+  MyClass _myClass;
+  MyClass get myClass => _$this._myClass;
+  set myClass(MyClass myClass) => _$this._myClass = myClass;
+
   CounterBuilder();
 
   CounterBuilder get _$this {
     if (_$v != null) {
       _count = _$v.count;
+      _myClass = _$v.myClass;
       _$v = null;
     }
     return this;
@@ -76,7 +85,7 @@ class CounterBuilder implements Builder<Counter, CounterBuilder> {
 
   @override
   _$Counter build() {
-    final _$result = _$v ?? new _$Counter._(count: count);
+    final _$result = _$v ?? new _$Counter._(count: count, myClass: myClass);
     replace(_$result);
     return _$result;
   }
